@@ -17,5 +17,9 @@ class1.createGraph()
 order = ReadFromFileIntoGraph.readOrder("order.txt")
 pizzeria = order.pop(0)[0]# now pizzeria has vertices(int ) and order has all the edges {list ot lists}
 finsearch = BFS.PierwszyNajtanszy(class1.graph,pizzeria,order)
-print(finsearch.planDelivery())
+
+route =finsearch.planDelivery()
+print(route)
+distance =finsearch.countDistance(route)
+print(distance)
 #print(finsearch.searchForOnePath(pizzeria,order))

@@ -78,6 +78,22 @@ class PierwszyNajtanszy:
             listOfFoundEdges = self.compareLists(self.bfssearch.queue, currentOrder)
         return listOfFoundEdges
 
+    def countDistance(self,listOfAllVisited):
+        distance = 0
+        for i in range(len(listOfAllVisited)-1):
+            key =listOfAllVisited[i]
+            for nb in self.bfssearch.graph[key]:
+                if nb[0] == listOfAllVisited[i+1]:
+                    distance+=nb[1]
+                    break;
+        return distance
+
+
+
+
+
+
+
     def planDelivery(self):
         root = self.pizzeria
         route = []
@@ -101,8 +117,8 @@ class PierwszyNajtanszy:
                         root = edge[0]
                         self.order.remove([root,vertex])
                         break
-                print(node_of_street_to_visit)
-                route+= node_of_street_to_visit[2] + [node_of_street_to_visit[0]] + [root]
+
+                route+= node_of_street_to_visit[2] + [node_of_street_to_visit[0]]
 
         nodePizzeria = self.searchForOnePath(root,[[self.pizzeria,self.pizzeria]])
         route += nodePizzeria[0][2] + [nodePizzeria[0][0]]
