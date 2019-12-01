@@ -1,8 +1,8 @@
-import graph_generator
+import readFromFileToGraph
 from pathlib import Path
 
 print("aaaaaa")
-class1 = graph_generator.GraphCreator("graph.txt")
+class1 = readFromFileToGraph.GraphCreator("graph.txt")
 file_name = input("Enter file with graph:")
 
 
