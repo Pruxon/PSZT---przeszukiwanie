@@ -1,7 +1,11 @@
 import ReadFromFileIntoGraph
 import BFS
+import randomGraphGenerator
 from pathlib import Path
 
+print("aaaaaa")
+class1 = readFromFileToGraph.GraphCreator("graph.txt")
+file_name = input("Enter file with graph:")
 
 class1 = ReadFromFileIntoGraph.GraphCreator("graph.txt")
 #file_name = input("Enter file with graph:")
