@@ -25,14 +25,15 @@ class GraphCreator:
         for line in file:
             self.list1.append(line)
         file.close()
-        print( self.list1)
+
+      #  print( self.list1)
 
     def convertStringToNumber(self):
 
         for line in self.list1:
 
             self.list2.append([int(s) for s in re.findall(r'\b\d+\b',line)])#check correctness of this line
-        print(self.list2)
+        #print(self.list2)
 
     def createGraph(self):
 
@@ -52,7 +53,7 @@ class GraphCreator:
 
 
 
-        print(self.graph)
+      #  print(self.graph)
                             # file must be of format 2 edges in each line
 def readOrder(file_name):#fucntion that takes file name as an arugment and returns list of edges(sets)
     with open(file_name)as file:
