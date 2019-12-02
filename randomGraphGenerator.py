@@ -128,3 +128,10 @@ class RandomGraph:
             file.write('\n')
             file.write('\n'.join(','.join(str(x) for x in tu)for tu in self.orders))
 
+
+graph = RandomGraph
+graph.initGraphGeneration(graph)
+graph.furtherGraphGeneration(graph)
+graph.generateTaskList(graph)
+graph.saveToFile(graph)
+graph.ordersToFile(graph)
