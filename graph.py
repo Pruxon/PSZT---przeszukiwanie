@@ -16,13 +16,10 @@ list_1 = []
 #for x in file:
     #print(x)
  #   list_1.append(x)
+list_1+=[2,3]
+print(list_1 )
+list_1+=[4,5]
+print(list_1 )
 
-
-
-d1 ={}
-d1.update({1:2})
-d1.update({2:[3]})
-d1.update({2:d1.get(2)+[[8],[9]]})
-print(d1)
 
 
