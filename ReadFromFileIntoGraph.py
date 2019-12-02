@@ -1,6 +1,7 @@
 #class that loads egdes from text file and generates graph
 import re
 import sys
+
 DEFAULT_NAME = "graph.txt"
 # dictionary of lists of sets     set(vertices,distance)
 class GraphCreator:
@@ -75,4 +76,10 @@ def readOrder(file_name):#fucntion that takes file name as an arugment and retur
         sys.exit(2)
 
 
+def writeRouteToFile(route):
 
+
+    file_name = "Trasa.txt"
+    with open(file_name, "w") as file:
+        for item in route:
+            file.write("%s " % item)
