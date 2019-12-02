@@ -31,5 +31,9 @@ stop = timeit.default_timer()
 #wyświtlenie wyników
 print(route)
 distance =finsearch.countDistance(route)
-print(distance)
-print("czas wykonania:{}".format(stop - start))
+
+
+print("Długość trasy w jednostkach umownych[j]:{}".format(distance))
+print("Liczba przebytch krawędzi:{}".format(len(route)-1))
+print("Czas wykonania [s]:{}".format(stop - start))
+ReadFromFileIntoGraph.writeRouteToFile(route)

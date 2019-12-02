@@ -1,4 +1,4 @@
-
+#from memory_profiler import profile
 
 class BFS:
     queue = []# do kolejki trafiają nody o strukturze [ wierzchołek ,
@@ -87,12 +87,7 @@ class PierwszyNajtanszy:
                     break;
         return distance
 
-
-
-
-
-
-
+   # @profile
     def planDelivery(self):
         root = self.pizzeria
         route = []
