@@ -1,10 +1,10 @@
 import random
 MAX_DISTANCE = 20
 MAX_NEIGHBOURS = 5
-NUMBER_OF_VERTICLES = 10
-MAX_ORDERS = 6
+NUMBER_OF_VERTICLES = 10000
+MAX_ORDERS = 100
 
-class Graph:
+class RandomGraph:
     graph = {}
     list1 = []
     orders = []
@@ -123,7 +123,8 @@ class Graph:
             print(temp[i])
 
     def ordersToFile(self):
-        with open("orders.txt", "w") as file:
+        with open("order.txt", "w") as file:
             file.write(str(self.pizzeria))
             file.write('\n')
             file.write('\n'.join(','.join(str(x) for x in tu)for tu in self.orders))
+
