@@ -1,29 +1,35 @@
 import ReadFromFileIntoGraph
 import BFS
-import randomGraphGenerator
+import timeit
+
+import time
 from pathlib import Path
+DEFAULT_NAME = "graph.txt"
 
-print("aaaaaa")
-class1 = readFromFileToGraph.GraphCreator("graph.txt")
+#instalowanie grafu
+RFF = ReadFromFileIntoGraph.GraphCreator(DEFAULT_NAME)
 file_name = input("Enter file with graph:")
+RFF.setGraphName(file_name)
+RFF.readEdgesFromFile()
+RFF.convertStringToNumber()
+RFF.createGraph()
 
-class1 = ReadFromFileIntoGraph.GraphCreator("graph.txt")
-#file_name = input("Enter file with graph:")
-#class1.SetGraphName(file_name)
+#instalacja zamówienia
+orderfile = input("Enter order file:")
+order = ReadFromFileIntoGraph.readOrder(orderfile)
+pizzeria = order.pop(0)[0]
 
+#inicjalizacja klasy obługującej algorytm
+finsearch = BFS.PierwszyNajtanszy(RFF.graph,pizzeria,order)
 
-class1.readEdgesFromFile()
-
-class1.convertStringToNumber()
-class1.createGraph()
-
-
-order = ReadFromFileIntoGraph.readOrder("order.txt")
-pizzeria = order.pop(0)[0]# now pizzeria has vertices(int ) and order has all the edges {list ot lists}
-finsearch = BFS.PierwszyNajtanszy(class1.graph,pizzeria,order)
-
+start = timeit.default_timer()
+#algorytm właściwy
 route =finsearch.planDelivery()
+stop = timeit.default_timer()
+
+
+#wyświtlenie wyników
 print(route)
 distance =finsearch.countDistance(route)
 print(distance)
-#print(finsearch.searchForOnePath(pizzeria,order))
+print("czas wykonania:{}".format(stop - start))

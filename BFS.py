@@ -1,7 +1,9 @@
 
 
 class BFS:
-    queue = []
+    queue = []# do kolejki trafiają nody o strukturze [ wierzchołek ,
+                                                        # trasa przebyta - odległość ]
+                                                        # trasa przebyta - trasa w postaci listy wierzchołków
     queue_one_iteration = []# pomocnicza koleja dla jednago kroku,który się wykonuje dla wszystkich znalezionych wierzchołków w poprzedniej iteracji
     visited = []# odwiedzone
     graph = {}
@@ -20,28 +22,25 @@ class BFS:
         self.setRootForSearch(root)
 
     def setRootForSearch(self,root):#pizzera
-        node = [root,0,[]]# wierzchołek,odległość i trasa w postaci listy np[1,3,4,7,11]        czy odległość potrzebna?
+        node = [root,0,[]]# wierzchołek,odległość i trasa w postaci listy np[1,3,4,7,11]
         self.queue.append(node)
         self.visited[node[0] - 1] = True
-       # print(self.queue)
+
 
     def bfsStep(self): #node jest postaći wierzchołek, "trasa"
         self.queue_one_iteration = self.queue.copy()
         #self.queue.clear()
-        #print("\n qo11iter {}".format(self.queue_one_iteration))#add visited into consideration
+
         for node in self.queue_one_iteration:# dla wszystkich nodów w kolejce szukamy nowych nodów gdzie jeszcze nie byliśmy
-            #print("bfs  :")
-           # print(self.graph[node[0]])
-            for nb in self.graph[node[0]]:
-                if(self.visited[nb[0]-1]== False): #### IF FIRST VERTICSIS IS 0 CHANGE TO NB[0]
+
+            for nb in self.graph[node[0]]:#nb - każdy znaleziony sąsiad
+                if(self.visited[nb[0]-1]== False): #### IF FIRST VERTEX IS 0 CHANGE TO NB[0]
                     newNode = [nb[0],node[1]+nb[1],node[2]+[node[0]]]
                     self.queue.append(newNode)
                     self.visited[nb[0] - 1] = True
             #oznaczyć noda jako odwiedzonego i usunąć z kolejki
 
             self.queue.pop(0)
-           # print("kolejka nowa: {}".format(self.queue))
-          #  print(self.visited)
 
         return self.queue
 
@@ -66,7 +65,7 @@ class PierwszyNajtanszy:
         terminal_states = []
         for edge in currentOrder:
             for node in queue:
-                if node[0] == edge[0] or node[0] == edge[1]: #   in
+                if node[0] == edge[0] or node[0] == edge[1]:
                      terminal_states.append(node)
         return terminal_states
 
