@@ -1,5 +1,8 @@
 import ReadFromFileIntoGraph
 import BFS
+import timeit
+
+import time
 from pathlib import Path
 DEFAULT_NAME = "graph.txt"
 
@@ -19,10 +22,14 @@ pizzeria = order.pop(0)[0]
 #inicjalizacja klasy obługującej algorytm
 finsearch = BFS.PierwszyNajtanszy(RFF.graph,pizzeria,order)
 
+start = timeit.default_timer()
 #algorytm właściwy
 route =finsearch.planDelivery()
+stop = timeit.default_timer()
+
 
 #wyświtlenie wyników
 print(route)
 distance =finsearch.countDistance(route)
 print(distance)
+print("czas wykonania:{}".format(stop - start))
