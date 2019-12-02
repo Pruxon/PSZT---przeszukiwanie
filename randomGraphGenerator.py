@@ -95,7 +95,8 @@ class RandomGraph:
         vertexCheck = 0
         for i in self.graph:
             numberOfEdges += len(self.graph[i])
-        numberOfOrders = random.randint(1, MAX_ORDERS)
+        #numberOfOrders = random.randint(1, MAX_ORDERS)
+        numberOfOrders = MAX_ORDERS
         for i in range(numberOfOrders):
             randomVertex = 0
             vertexCheck = 0
